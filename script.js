@@ -1,5 +1,39 @@
-// declare and initialize global variables
 
+var canvas;
+var canvasWidth = 500;
+var canvasHeight= 400;
+var button;
+var slider;
+var spread;
+
+
+function setup() {
+  canvas= createCanvas(canvasWidth,canvasHeight);
+  background(25,30,40);
+  canvas.parent("canvas-area");
+  canvas.mousePressed(drawEllipse);
+  button= select("#clear-button");
+  button.mousePressed(setup);
+  slider= select("#slider");
+  slider.input(updateSpread);
+  updateSpread();
+
+
+}
+
+function drawEllipse() {
+  fill("pink")
+  ellipse(mouseX,mouseY,spread,spread);
+}
+
+ function updateSpread() { 
+spread= slider.value();
+
+}
+
+  // body...
+
+ // declare and initialize global variables
 /*
  * setup()
  */
